@@ -3,6 +3,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:mtg_deck_creator/recognizer/mlk_text_recognizer.dart';
 import 'package:mtg_deck_creator/models/recognition_response.dart';
 import 'package:mtg_deck_creator/recognizer/interface/text_recognizer.dart';
+import 'package:mtg_deck_creator/services/card_data.dart';
 
 class PhotoScreen extends StatefulWidget {
   static const String id = 'photo_screen';
@@ -22,6 +23,7 @@ class _PhotoScreenState extends State<PhotoScreen> {
     super.initState();
     _picker = ImagePicker();
     _recognizer = MLKTextRecognizer();
+    getMtgCardData();
   }
 
   @override
@@ -44,6 +46,11 @@ class _PhotoScreenState extends State<PhotoScreen> {
           RecognitionResponse(imgPath: imgPath, recognizedText: recognizedText);
     });
     print(_response!.recognizedText);
+  }
+
+  void getMtgCardData() async {
+    var response = await CardData().getCardData('Griffin Protector', 'DMU');
+    print('CardData Response: $response');
   }
 
   @override
