@@ -4,6 +4,7 @@ import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart
 
 class MLKTextRecognizer extends ITextRecognizer {
   late TextRecognizer recognizer;
+  List<String> cardTextList = [];
 
   MLKTextRecognizer() {
     recognizer = TextRecognizer();
@@ -14,9 +15,12 @@ class MLKTextRecognizer extends ITextRecognizer {
   }
 
   @override
-  Future<String> processImage(String imgPath) async {
+  Future<List<String>> processImage(String imgPath) async {
     final image = InputImage.fromFile(File(imgPath));
     final recognized = await recognizer.processImage(image);
-    return recognized.text;
+    for (var textLine in recognized.blocks) {
+      cardTextList.add(textLine.text);
+    }
+    return cardTextList;
   }
 }

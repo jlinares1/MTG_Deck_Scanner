@@ -17,7 +17,8 @@ class NetworkHelper {
     Uri url = Uri.https(urlPath, unEncodedPath, queryParameters);
     Response response = await get(url, headers: headers);
     if (response.statusCode == 200) {
-      return jsonDecode(response.body);
+      return response.body;
+      //return jsonDecode(response.body);
     } else {
       print(response.statusCode);
     }

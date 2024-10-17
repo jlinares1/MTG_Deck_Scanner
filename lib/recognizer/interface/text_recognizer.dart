@@ -1,3 +1,3 @@
 abstract class ITextRecognizer {
-  Future<String> processImage(String imgPath);
+  Future<List<String>> processImage(String imgPath);
 }

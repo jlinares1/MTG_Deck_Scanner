@@ -16,14 +16,13 @@ class PhotoScreen extends StatefulWidget {
 class _PhotoScreenState extends State<PhotoScreen> {
   late ImagePicker _picker;
   late ITextRecognizer _recognizer;
-  RecognitionResponse? _response;
+  RecognitionResponse? response;
 
   @override
   void initState() {
     super.initState();
     _picker = ImagePicker();
     _recognizer = MLKTextRecognizer();
-    getMtgCardData();
   }
 
   @override
@@ -42,14 +41,15 @@ class _PhotoScreenState extends State<PhotoScreen> {
   void processImage(String imgPath) async {
     final recognizedText = await _recognizer.processImage(imgPath);
     setState(() {
-      _response =
+      response =
           RecognitionResponse(imgPath: imgPath, recognizedText: recognizedText);
     });
-    print(_response!.recognizedText);
+    getMtgCardData(response!.recognizedText[0]);
+    response!.recognizedText.clear();
   }
 
-  void getMtgCardData() async {
-    var response = await CardData().getCardData('Griffin Protector', 'DMU');
+  void getMtgCardData(String cardName) async {
+    var response = await CardData().getCardData(cardName);
     print('CardData Response: $response');
   }
 

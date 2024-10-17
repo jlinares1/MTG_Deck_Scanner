@@ -1,6 +1,6 @@
 class RecognitionResponse {
   final String imgPath;
-  final String recognizedText;
+  final List<String> recognizedText;
 
   RecognitionResponse({required this.imgPath, required this.recognizedText});
 
