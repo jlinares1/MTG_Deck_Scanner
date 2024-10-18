@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SettingScreen extends StatelessWidget {
-  static const String id = 'home_screen';
+  static const String id = 'setting_screen';
   const SettingScreen({super.key});
 
   @override
