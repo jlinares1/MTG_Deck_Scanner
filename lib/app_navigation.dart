@@ -4,6 +4,7 @@ import 'package:mtg_deck_creator/screens/bottom_tab_screens/bottom_tabs_nested_n
 import 'package:mtg_deck_creator/screens/bottom_tab_screens/home_screen.dart';
 import 'package:mtg_deck_creator/screens/bottom_tab_screens/photo_screen.dart';
 import 'package:mtg_deck_creator/screens/bottom_tab_screens/setting_screen.dart';
+import 'package:mtg_deck_creator/screens/card_results_screen.dart';
 
 class AppNavigation {
   AppNavigation._();
@@ -56,6 +57,13 @@ class AppNavigation {
                           NoTransitionPage(child: SettingScreen()),
                     )
                   ])
-            ])
+            ]),
+        GoRoute(
+          parentNavigatorKey: _rootNavigatorKey,
+          name: CardResultsScreen.id,
+          path: '/cardResultsScreen',
+          pageBuilder: (context, state) =>
+              NoTransitionPage(child: CardResultsScreen()),
+        )
       ]);
 }

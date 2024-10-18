@@ -17,3 +17,16 @@
 [] - Adding in go routing
 [] - setup flip card with card image with routing to card info page
 [] - Update app icon and application name
+
+### feature (Once all the above are completed)
+[] - embedded camera into a screen using google object dectection
+
+
+# Notes
+
+## Mana color
+* {U} - Island 
+* {B} - Swamp
+* {R} - Mountain
+* {W} - Plains
+* {G} - Forest
