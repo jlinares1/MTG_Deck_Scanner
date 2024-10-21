@@ -1,7 +1,8 @@
+import 'package:mtg_deck_creator/models/mtg_card_response.dart';
 import 'package:mtg_deck_creator/services/network.dart';
 
 class CardData {
-  Future<dynamic> getCardData(String cardName) async {
+  Future<MTGCardResponse> getCardData(String cardName) async {
     Map<String, String> qParams = {
       'fuzzy': cardName.replaceAll(RegExp(r'\s+'), '+')
     };
@@ -13,6 +14,6 @@ class CardData {
           'User-Agent': 'MTGDeckScannerApp/1.0',
           'Accept': 'application/json'
         });
-    return await networkHelper.getData();
+    return MTGCardResponse.fromJson(await networkHelper.getData());
   }
 }

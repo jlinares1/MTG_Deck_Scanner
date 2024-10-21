@@ -1,5 +1,5 @@
-import 'package:http/http.dart';
 import 'dart:convert';
+import 'package:http/http.dart';
 
 class NetworkHelper {
   NetworkHelper(
@@ -17,10 +17,10 @@ class NetworkHelper {
     Uri url = Uri.https(urlPath, unEncodedPath, queryParameters);
     Response response = await get(url, headers: headers);
     if (response.statusCode == 200) {
-      return response.body;
+      return jsonDecode(response.body) as Map<String, dynamic>;
       //return jsonDecode(response.body);
     } else {
-      print(response.statusCode);
+      throw Exception('${response.statusCode}');
     }
   }
 }
