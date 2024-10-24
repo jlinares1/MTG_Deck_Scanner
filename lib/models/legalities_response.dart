@@ -1,26 +1,26 @@
 class LegalitiesResponse {
-  final bool standard;
-  final bool future;
-  final bool historic;
-  final bool timeless;
-  final bool gladiator;
-  final bool pioneer;
-  final bool explorer;
-  final bool modern;
-  final bool legacy;
-  final bool pauper;
-  final bool vintage;
-  final bool penny;
-  final bool commander;
-  final bool oathbreaker;
-  final bool standardbrawl;
-  final bool brawl;
-  final bool alchemy;
-  final bool paupercommander;
-  final bool duel;
-  final bool oldschool;
-  final bool premodern;
-  final bool predh;
+  final String standard;
+  final String future;
+  final String historic;
+  final String timeless;
+  final String gladiator;
+  final String pioneer;
+  final String explorer;
+  final String modern;
+  final String legacy;
+  final String pauper;
+  final String vintage;
+  final String penny;
+  final String commander;
+  final String oathbreaker;
+  final String standardbrawl;
+  final String brawl;
+  final String alchemy;
+  final String paupercommander;
+  final String duel;
+  final String oldschool;
+  final String premodern;
+  final String predh;
 
   LegalitiesResponse(
       {required this.standard,
@@ -46,56 +46,54 @@ class LegalitiesResponse {
       required this.premodern,
       required this.predh});
 
-  factory LegalitiesResponse.fromjson(Map<String, dynamic> json) {
-    return switch (json) {
-      {
-        'standard': bool standard,
-        'future': bool future,
-        'historic': bool historic,
-        'timeless': bool timeless,
-        'gladiator': bool gladiator,
-        'pioneer': bool pioneer,
-        'explorer': bool explorer,
-        'modern': bool modern,
-        'legacy': bool legacy,
-        'pauper': bool pauper,
-        'vintage': bool vintage,
-        'penny': bool penny,
-        'commander': bool commander,
-        'oathbreaker': bool oathbreaker,
-        'standardbrawl': bool standardbrawl,
-        'brawl': bool brawl,
-        'alchemy': bool alchemy,
-        'paupercommander': bool paupercommander,
-        'duel': bool duel,
-        'oldschool': bool oldschool,
-        'premodern': bool premodern,
-        'predh': bool predh,
-      } =>
-        LegalitiesResponse(
-            standard: standard,
-            future: future,
-            historic: historic,
-            timeless: timeless,
-            gladiator: gladiator,
-            pioneer: pioneer,
-            explorer: explorer,
-            modern: modern,
-            legacy: legacy,
-            pauper: pauper,
-            vintage: vintage,
-            penny: penny,
-            commander: commander,
-            oathbreaker: oathbreaker,
-            standardbrawl: standardbrawl,
-            brawl: brawl,
-            alchemy: alchemy,
-            paupercommander: paupercommander,
-            duel: duel,
-            oldschool: oldschool,
-            premodern: premodern,
-            predh: predh),
-      _ => throw const FormatException('Failed to load legalities response'),
-    };
-  }
+  factory LegalitiesResponse.fromJson(Map<String, dynamic> json) =>
+      LegalitiesResponse(
+        standard: json["standard"],
+        future: json["future"],
+        historic: json["historic"],
+        timeless: json["timeless"],
+        gladiator: json["gladiator"],
+        pioneer: json["pioneer"],
+        explorer: json["explorer"],
+        modern: json["modern"],
+        legacy: json["legacy"],
+        pauper: json["pauper"],
+        vintage: json["vintage"],
+        penny: json["penny"],
+        commander: json["commander"],
+        oathbreaker: json["oathbreaker"],
+        standardbrawl: json["standardbrawl"],
+        brawl: json["brawl"],
+        alchemy: json["alchemy"],
+        paupercommander: json["paupercommander"],
+        duel: json["duel"],
+        oldschool: json["oldschool"],
+        premodern: json["premodern"],
+        predh: json["predh"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "standard": standard,
+        "future": future,
+        "historic": historic,
+        "timeless": timeless,
+        "gladiator": gladiator,
+        "pioneer": pioneer,
+        "explorer": explorer,
+        "modern": modern,
+        "legacy": legacy,
+        "pauper": pauper,
+        "vintage": vintage,
+        "penny": penny,
+        "commander": commander,
+        "oathbreaker": oathbreaker,
+        "standardbrawl": standardbrawl,
+        "brawl": brawl,
+        "alchemy": alchemy,
+        "paupercommander": paupercommander,
+        "duel": duel,
+        "oldschool": oldschool,
+        "premodern": premodern,
+        "predh": predh,
+      };
 }

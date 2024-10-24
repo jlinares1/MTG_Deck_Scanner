@@ -5,7 +5,6 @@ import 'package:mtg_deck_creator/recognizer/mlk_text_recognizer.dart';
 import 'package:mtg_deck_creator/models/recognition_response.dart';
 import 'package:mtg_deck_creator/recognizer/interface/text_recognizer.dart';
 import 'package:mtg_deck_creator/screens/card_results_screen.dart';
-import 'package:mtg_deck_creator/services/card_data.dart';
 
 class PhotoScreen extends StatefulWidget {
   static const String id = 'photo_screen';
@@ -45,14 +44,10 @@ class _PhotoScreenState extends State<PhotoScreen> {
     setState(() {
       response =
           RecognitionResponse(imgPath: imgPath, recognizedText: recognizedText);
+      context.pushNamed(CardResultsScreen.id,
+          extra: response!.recognizedText[0]);
     });
-    getMtgCardData(response!.recognizedText[0]);
-    response!.recognizedText.clear();
-  }
-
-  void getMtgCardData(String cardName) async {
-    var response = await CardData().getCardData(cardName);
-    print('CardData Response: $response');
+    print(response!.recognizedText);
   }
 
   @override
@@ -62,10 +57,9 @@ class _PhotoScreenState extends State<PhotoScreen> {
         child: IconButton(
             onPressed: () async {
               final imgPath = await obtainImage(ImageSource.camera);
+              //need to add error handler for null imgPath
               if (imgPath == null) return;
               processImage(imgPath);
-              //brings up card results screen
-              context.pushNamed(CardResultsScreen.id);
             },
             icon: const Icon(Icons.camera)),
       ),

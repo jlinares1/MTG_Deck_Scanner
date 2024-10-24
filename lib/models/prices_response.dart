@@ -1,37 +1,34 @@
 class PricesResponse {
-  final String usd;
-  final String usdFoil;
-  final String usdEtched;
-  final String eur;
-  final String eurFoil;
-  final String tix;
+  final String? usd;
+  final String? usdFoil;
+  final String? usdEtched;
+  final String? eur;
+  final String? eurFoil;
+  final String? tix;
 
   PricesResponse(
-      {required this.usd,
-      required this.usdFoil,
-      required this.usdEtched,
-      required this.eur,
-      required this.eurFoil,
-      required this.tix});
+      {this.usd,
+      this.usdFoil,
+      this.usdEtched,
+      this.eur,
+      this.eurFoil,
+      this.tix});
 
-  factory PricesResponse.fromjson(Map<String, dynamic> json) {
-    return switch (json) {
-      {
-        'usd': String usd,
-        'usd_foil': String usdFoil,
-        'usd_etched': String usdEtched,
-        'eur': String eur,
-        'eur_foil': String eurFoil,
-        'tix': String tix,
-      } =>
-        PricesResponse(
-            usd: usd,
-            usdFoil: usdFoil,
-            usdEtched: usdEtched,
-            eur: eur,
-            eurFoil: eurFoil,
-            tix: tix),
-      _ => throw const FormatException('Failed to load prices esponse'),
-    };
-  }
+  factory PricesResponse.fromJson(Map<String, dynamic> json) => PricesResponse(
+        usd: json["usd"],
+        usdFoil: json["usd_foil"],
+        usdEtched: json["usd_etched"],
+        eur: json["eur"],
+        eurFoil: json["eur_foil"],
+        tix: json["tix"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "usd": usd,
+        "usd_foil": usdFoil,
+        "usd_etched": usdEtched,
+        "eur": eur,
+        "eur_foil": eurFoil,
+        "tix": tix,
+      };
 }

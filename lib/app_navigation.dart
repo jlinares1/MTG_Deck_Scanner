@@ -62,8 +62,10 @@ class AppNavigation {
           parentNavigatorKey: _rootNavigatorKey,
           name: CardResultsScreen.id,
           path: '/cardResultsScreen',
-          pageBuilder: (context, state) =>
-              NoTransitionPage(child: CardResultsScreen()),
+          builder: (context, state) {
+            final cardText = state.extra! as String;
+            return CardResultsScreen(cardName: cardText);
+          },
         )
       ]);
 }

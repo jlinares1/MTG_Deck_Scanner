@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mtg_deck_creator/models/mtg_card_response.dart';
 import 'package:mtg_deck_creator/services/network.dart';
 
@@ -17,3 +18,5 @@ class CardData {
     return MTGCardResponse.fromJson(await networkHelper.getData());
   }
 }
+
+final cardResponseProvider = Provider<CardData>((ref) => CardData());

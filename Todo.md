@@ -6,21 +6,24 @@
 [x] - Convert text to mtg card json object 
 [x] - Setup scryfall api crud opertaions
 [x] - Return json object from api
+[x] - Setup riverpod provider and future provider for getCardData
 [] - figure out how to add lines to camera to ensure card is close (edge detection)
-[] - Add text recognition for japanese language and spanish language
+
 
 ## SQlite card data storage
 [] - Setup Sqlite local storage
 [] - store card json object
 
 ## Flip card and UI logic
-[] - Adding in go routing
+[x] - Adding in go routing
+[] - create card result widget
 [] - setup flip card with card image with routing to card info page
-[] - Update app icon and application name
+[x] - Update app icon and application name
+[] - Add a splash screen with the logo and name of app
 
 ### feature (Once all the above are completed)
 [] - embedded camera into a screen using google object dectection
-
+[] - Add text recognition for japanese language and spanish language
 
 # Notes
 

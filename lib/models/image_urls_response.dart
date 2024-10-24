@@ -14,24 +14,22 @@ class ImageUrlsResponse {
       required this.artCrop,
       required this.borderCrop});
 
-  factory ImageUrlsResponse.fromJson(Map<String, dynamic> json) {
-    return switch (json) {
-      {
-        'small': String small,
-        'normal': String normal,
-        'large': String large,
-        'png': String png,
-        'art_corp': String artCrop,
-        'border_crop': String borderCrop,
-      } =>
-        ImageUrlsResponse(
-            small: small,
-            normal: normal,
-            large: large,
-            png: png,
-            artCrop: artCrop,
-            borderCrop: borderCrop),
-      _ => throw const FormatException('Failed to load image urls response'),
-    };
-  }
+  factory ImageUrlsResponse.fromJson(Map<String, dynamic> json) =>
+      ImageUrlsResponse(
+        small: json["small"],
+        normal: json["normal"],
+        large: json["large"],
+        png: json["png"],
+        artCrop: json["art_crop"],
+        borderCrop: json["border_crop"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "small": small,
+        "normal": normal,
+        "large": large,
+        "png": png,
+        "art_crop": artCrop,
+        "border_crop": borderCrop,
+      };
 }

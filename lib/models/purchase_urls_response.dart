@@ -8,18 +8,16 @@ class PurchaseUrlsResponse {
       required this.cardMarket,
       required this.cardHoarder});
 
-  factory PurchaseUrlsResponse.fromjson(Map<String, dynamic> json) {
-    return switch (json) {
-      {
-        'tcg_player': String tcgPlayer,
-        'card_market': String cardMarket,
-        'card_hoarder': String cardHoarder,
-      } =>
-        PurchaseUrlsResponse(
-            tcgPlayer: tcgPlayer,
-            cardMarket: cardMarket,
-            cardHoarder: cardHoarder),
-      _ => throw const FormatException('Failed to load purchase urls response'),
-    };
-  }
+  factory PurchaseUrlsResponse.fromJson(Map<String, dynamic> json) =>
+      PurchaseUrlsResponse(
+        tcgPlayer: json["tcgplayer"],
+        cardMarket: json["cardmarket"],
+        cardHoarder: json["cardhoarder"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "tcgplayer": tcgPlayer,
+        "cardmarket": cardMarket,
+        "cardhoarder": cardHoarder,
+      };
 }

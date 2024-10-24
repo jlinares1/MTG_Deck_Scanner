@@ -11,26 +11,25 @@ class MTGCardResponse {
   final String lang;
   final String releaseAt;
   final String layout;
-  final ImageUrlsResponse imageUrl;
+  final ImageUrlsResponse imageUrls;
   final String manaCost;
   final String typeLine;
   final String oracleText;
-  final int power;
-  final int toughness;
+  final String power;
+  final String toughness;
   final List<String> colors;
   final LegalitiesResponse legalities;
   final bool nonFoil;
   final bool foil;
-  final String promo;
-  final String reprint;
-  final String variation;
-  final String set;
+  final bool promo;
+  final bool reprint;
+  final bool variation;
+  final String setId;
   final String setName;
   final String setType;
   final String collectorNumber;
   final String rarity;
   final String artist;
-  final String artistId;
   final PricesResponse prices;
   final PurchaseUrlsResponse purchaseUrls;
 
@@ -42,7 +41,7 @@ class MTGCardResponse {
       required this.lang,
       required this.releaseAt,
       required this.layout,
-      required this.imageUrl,
+      required this.imageUrls,
       required this.manaCost,
       required this.typeLine,
       required this.oracleText,
@@ -55,80 +54,75 @@ class MTGCardResponse {
       required this.promo,
       required this.reprint,
       required this.variation,
-      required this.set,
+      required this.setId,
       required this.setName,
       required this.setType,
       required this.collectorNumber,
       required this.rarity,
       required this.artist,
-      required this.artistId,
       required this.prices,
       required this.purchaseUrls});
 
-  factory MTGCardResponse.fromJson(Map<String, dynamic> json) {
-    return switch (json) {
-      {
-        'id': String id,
-        'tcgplayer_id': int tcgPlayerId,
-        'cardmarket_id': int cardMarketId,
-        'name': String name,
-        'lang': String lang,
-        'release_at': String releaseAt,
-        'layout': String layout,
-        'image_uris': ImageUrlsResponse imageUrl,
-        'mana_cost': String manaCost,
-        'type_line': String typeLine,
-        'oracle_text': String oracleText,
-        'power': int power,
-        'toughness': int toughness,
-        'colors': List<String> colors,
-        'legalities': LegalitiesResponse legalities,
-        'nonfoil': bool nonFoil,
-        'foil': bool foil,
-        'promo': String promo,
-        'reprint': String reprint,
-        'variation': String variation,
-        'set': String set,
-        'set_name': String setName,
-        'set_type': String setType,
-        'collector_number': String collectorNumber,
-        'rarity': String rarity,
-        'artist': String artist,
-        'artist_ids': String artistId,
-        'prices': PricesResponse prices,
-        'purchase_uris': PurchaseUrlsResponse purchaseUrls
-      } =>
-        MTGCardResponse(
-            id: id,
-            tcgPlayerId: tcgPlayerId,
-            cardMarketId: cardMarketId,
-            name: name,
-            lang: lang,
-            releaseAt: releaseAt,
-            layout: layout,
-            imageUrl: imageUrl,
-            manaCost: manaCost,
-            typeLine: typeLine,
-            oracleText: oracleText,
-            power: power,
-            toughness: toughness,
-            colors: colors,
-            legalities: legalities,
-            nonFoil: nonFoil,
-            foil: foil,
-            promo: promo,
-            reprint: reprint,
-            variation: variation,
-            set: set,
-            setName: setName,
-            setType: setType,
-            collectorNumber: collectorNumber,
-            rarity: rarity,
-            artist: artist,
-            artistId: artistId,
-            prices: prices,
-            purchaseUrls: purchaseUrls),
-      _ => throw const FormatException('Failed to load MTG Card Response'),
-    };
-  }
+  factory MTGCardResponse.fromJson(Map<String, dynamic> json) =>
+      MTGCardResponse(
+        id: json["id"],
+        tcgPlayerId: json["tcgplayer_id"],
+        cardMarketId: json["cardmarket_id"],
+        name: json["name"],
+        lang: json["lang"],
+        releaseAt: json["released_at"],
+        layout: json["layout"],
+        imageUrls: ImageUrlsResponse.fromJson(json["image_uris"]),
+        manaCost: json["mana_cost"],
+        typeLine: json["type_line"],
+        oracleText: json["oracle_text"],
+        power: json["power"],
+        toughness: json["toughness"],
+        colors: List<String>.from(json["colors"].map((x) => x)),
+        legalities: LegalitiesResponse.fromJson(json["legalities"]),
+        foil: json["foil"],
+        nonFoil: json["nonfoil"],
+        promo: json["promo"],
+        reprint: json["reprint"],
+        variation: json["variation"],
+        setId: json["set"],
+        setName: json["set_name"],
+        setType: json["set_type"],
+        collectorNumber: json["collector_number"],
+        rarity: json["rarity"],
+        artist: json["artist"],
+        prices: PricesResponse.fromJson(json["prices"]),
+        purchaseUrls: PurchaseUrlsResponse.fromJson(json["purchase_uris"]),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "tcgplayer_id": tcgPlayerId,
+        "cardmarket_id": cardMarketId,
+        "name": name,
+        "lang": lang,
+        "released_at": releaseAt,
+        "layout": layout,
+        "image_uris": imageUrls.toJson(),
+        "mana_cost": manaCost,
+        "type_line": typeLine,
+        "oracle_text": oracleText,
+        "power": power,
+        "toughness": toughness,
+        "colors": List<dynamic>.from(colors.map((x) => x)),
+        "legalities": legalities.toJson(),
+        "foil": foil,
+        "nonfoil": nonFoil,
+        "promo": promo,
+        "reprint": reprint,
+        "variation": variation,
+        "set": setId,
+        "set_name": setName,
+        "set_type": setType,
+        "collector_number": collectorNumber,
+        "rarity": rarity,
+        "artist": artist,
+        "prices": prices.toJson(),
+        "purchase_uris": purchaseUrls.toJson(),
+      };
 }
