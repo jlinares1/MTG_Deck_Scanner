@@ -17,7 +17,7 @@ class PhotoScreen extends StatefulWidget {
 class _PhotoScreenState extends State<PhotoScreen> {
   late ImagePicker _picker;
   late ITextRecognizer _recognizer;
-  RecognitionResponse? response;
+  late RecognitionResponse response;
 
   @override
   void initState() {
@@ -44,10 +44,11 @@ class _PhotoScreenState extends State<PhotoScreen> {
     setState(() {
       response =
           RecognitionResponse(imgPath: imgPath, recognizedText: recognizedText);
-      context.pushNamed(CardResultsScreen.id,
-          extra: response!.recognizedText[0]);
+      if (response.recognizedText[0].isNotEmpty) {
+        context.pushNamed(CardResultsScreen.id,
+            extra: response.recognizedText[0]);
+      }
     });
-    print(response!.recognizedText);
   }
 
   @override

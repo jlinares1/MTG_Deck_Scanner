@@ -15,8 +15,10 @@ class NetworkHelper {
 
   Future getData() async {
     Uri url = Uri.https(urlPath, unEncodedPath, queryParameters);
+    print('network helper: $url');
     Response response = await get(url, headers: headers);
     if (response.statusCode == 200) {
+      print('response: ${response.body}');
       return jsonDecode(response.body) as Map<String, dynamic>;
       //return jsonDecode(response.body);
     } else {

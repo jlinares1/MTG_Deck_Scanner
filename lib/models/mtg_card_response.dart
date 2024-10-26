@@ -3,6 +3,7 @@ import 'package:mtg_deck_creator/models/legalities_response.dart';
 import 'package:mtg_deck_creator/models/prices_response.dart';
 import 'package:mtg_deck_creator/models/purchase_urls_response.dart';
 
+//Need to add null safety
 class MTGCardResponse {
   final String id;
   final int tcgPlayerId;

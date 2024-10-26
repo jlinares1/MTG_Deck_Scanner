@@ -20,6 +20,7 @@
 [] - setup flip card with card image with routing to card info page
 [x] - Update app icon and application name
 [] - Add a splash screen with the logo and name of app
+[] - Adding ability to change theme
 
 ### feature (Once all the above are completed)
 [] - embedded camera into a screen using google object dectection

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mtg_deck_creator/screens/bottom_tab_screens/bottom_tabs_nested_navigation.dart';
@@ -62,10 +63,12 @@ class AppNavigation {
           parentNavigatorKey: _rootNavigatorKey,
           name: CardResultsScreen.id,
           path: '/cardResultsScreen',
-          builder: (context, state) {
-            final cardText = state.extra! as String;
-            return CardResultsScreen(cardName: cardText);
-          },
+          // builder: (context, state) {
+          //   final cardText = state.extra! as String;
+          //   return CardResultsScreen(cardName: cardText);
+          //},
+          pageBuilder: (context, state) => MaterialPage<void>(
+              child: CardResultsScreen(cardName: state.extra! as String)),
         )
       ]);
 }

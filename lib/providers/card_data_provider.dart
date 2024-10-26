@@ -4,5 +4,5 @@ import 'package:mtg_deck_creator/services/card_data.dart';
 
 final cardDataProvider =
     FutureProvider.family<MTGCardResponse, String>((ref, cardName) async {
-  return ref.read(cardResponseProvider).getCardData(cardName);
+  return ref.read(cardResponseProvider).getCardDataByName(cardName);
 });

@@ -9,11 +9,17 @@ class CardResultsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    print('text cardName: $cardName');
     final cardData = ref.watch(cardDataProvider(cardName));
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Card result'),
+      ),
       body: cardData.when(
           data: (data) {
-            return Center(child: Text(data.name));
+            return Column(
+              children: [Center(child: Text(data.name))],
+            );
           },
           error: ((error, stacktrace) => Center(child: Text(error.toString()))),
           loading: () => const Center(
