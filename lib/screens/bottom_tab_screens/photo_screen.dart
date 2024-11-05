@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mtg_deck_creator/recognizer/mlk_text_recognizer.dart';
-import 'package:mtg_deck_creator/models/recognition_response.dart';
+import 'package:mtg_deck_creator/models/scryfall/recognition_response.dart';
 import 'package:mtg_deck_creator/recognizer/interface/text_recognizer.dart';
 import 'package:mtg_deck_creator/screens/card_results_screen.dart';
 

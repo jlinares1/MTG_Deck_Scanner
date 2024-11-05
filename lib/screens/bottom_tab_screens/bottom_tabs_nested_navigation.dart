@@ -19,13 +19,17 @@ class BottomTabsNestedNavigation extends StatelessWidget {
         height: Platform.isIOS ? 85 : 55,
         child: BottomNavigationBar(
           currentIndex: navigationShell.currentIndex,
-          selectedItemColor: Colors.blueGrey,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: Colors.blue.shade600,
+          unselectedItemColor: Colors.grey,
           elevation: 0,
           iconSize: 26,
           selectedFontSize: 10,
           unselectedFontSize: 10,
-          items: [
+          items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.style_outlined), label: 'Decks'),
             BottomNavigationBarItem(icon: Icon(Icons.camera), label: 'Scanner'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.settings), label: 'Setting')

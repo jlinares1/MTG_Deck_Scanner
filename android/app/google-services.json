@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "119519137996",
+    "project_id": "mtg-deck-creator",
+    "storage_bucket": "mtg-deck-creator.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119519137996:android:bf50b1ab03962ed357f269",
+        "android_client_info": {
+          "package_name": "com.example.mtg_deck_creator"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLK1JIB2bx0LPeRURjj861vTALiSlVzhM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

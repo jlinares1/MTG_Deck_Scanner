@@ -1,7 +1,7 @@
-import 'package:mtg_deck_creator/models/image_urls_response.dart';
-import 'package:mtg_deck_creator/models/legalities_response.dart';
-import 'package:mtg_deck_creator/models/prices_response.dart';
-import 'package:mtg_deck_creator/models/purchase_urls_response.dart';
+import 'package:mtg_deck_creator/models/scryfall/image_urls_response.dart';
+import 'package:mtg_deck_creator/models/scryfall/legalities_response.dart';
+import 'package:mtg_deck_creator/models/scryfall/prices_response.dart';
+import 'package:mtg_deck_creator/models/scryfall/purchase_urls_response.dart';
 
 //Need to add null safety
 class MTGCardResponse {

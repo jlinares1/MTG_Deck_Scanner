@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mtg_deck_creator/models/mtg_card_response.dart';
+import 'package:mtg_deck_creator/models/scryfall/mtg_card_response.dart';
 import 'package:mtg_deck_creator/services/network.dart';
 
-class CardData {
+class CardDataClient {
   ///Returns card data by a name
   Future<MTGCardResponse> getCardDataByName(String cardName) async {
     Map<String, String> qParams = {
@@ -33,6 +33,21 @@ class CardData {
     return response;
   }
 
+  ///Returns card data by set & Id
+  Future<MTGCardResponse> getCardDataBySet(String id, String set) async {
+    Map<String, String> qParams = {'set': set};
+    NetworkHelper networkHelper = NetworkHelper(
+        urlPath: 'api.scryfall.com',
+        unEncodedPath: '/cards/$id',
+        queryParameters: qParams,
+        headers: {
+          'User-Agent': 'MTGDeckCreatorApp/1.0',
+          'Accept': 'application/json'
+        });
+    final response = MTGCardResponse.fromJson(await networkHelper.getData());
+    return response;
+  }
+
   ///Returns a random card from API
   Future<MTGCardResponse> getRandomCardData() async {
     NetworkHelper networkHelper = NetworkHelper(
@@ -47,4 +62,5 @@ class CardData {
   }
 }
 
-final cardResponseProvider = Provider<CardData>((ref) => CardData());
+final cardResponseProvider =
+    Provider<CardDataClient>((ref) => CardDataClient());
