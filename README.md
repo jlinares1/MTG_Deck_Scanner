@@ -10,7 +10,7 @@
 - [x] Incorporate text recognition package into app
 - [x] Add Scryfall API
 - [x] Build out card result page for card response
-- [] Incorporate firebase authentication and storage into project
+- [x] Incorporate firebase authentication and storage into project
 - [] Build out deck collection page and add card to deck button
 - [] Build out home page
     - [] Previous looked at cards section
