@@ -47,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blueAccent,
+                  color: Colors.blueGrey,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -56,7 +56,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 controller: emailController,
                 decoration: const InputDecoration(
                   labelText: 'Email',
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(8.0))),
                   prefixIcon: Icon(Icons.email),
                 ),
                 keyboardType: TextInputType.emailAddress,
@@ -66,7 +67,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 controller: passwordController,
                 decoration: const InputDecoration(
                   labelText: 'Password',
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(8.0))),
                   prefixIcon: Icon(Icons.lock),
                 ),
                 obscureText: true,
@@ -77,8 +79,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   logInUser();
                 },
                 style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                ),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    backgroundColor: Colors.blue),
                 child: const Text(
                   'Login',
                   style: TextStyle(fontSize: 18),

@@ -11,11 +11,15 @@
 - [x] Add Scryfall API
 - [x] Build out card result page for card response
 - [x] Incorporate firebase authentication and storage into project
-- [] Build out deck collection page and add card to deck button
+- [] Build out deck collection page
+    - [] add bottom sheet component to create a new deck
+    - [] build out deck list component
+    - [] build card listing within deck
+    - [] add card to deck button under card result page
 - [] Build out home page
     - [] Previous looked at cards section
     - [] Random card section 
-    - [] MTG Rules section 
+    - [] MTG Rules section
 
 
 ## Built In

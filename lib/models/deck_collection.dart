@@ -2,6 +2,7 @@ import 'package:mtg_deck_creator/models/scryfall/mtg_card_response.dart';
 
 class DeckCollection {
   final String userId;
+  final String deckName;
   final String gameType;
   final int cardTotal;
   final bool allUniqueCards;
@@ -19,6 +20,7 @@ class DeckCollection {
 
   DeckCollection(
       {required this.userId,
+      required this.deckName,
       required this.gameType,
       required this.cardTotal,
       required this.lastUpdated,
@@ -36,6 +38,7 @@ class DeckCollection {
 
   factory DeckCollection.fromJson(Map<String, dynamic> json) => DeckCollection(
         userId: json["userId"],
+        deckName: json["deckName"],
         gameType: json["gameType"],
         cardTotal: json["cardTotal"],
         allUniqueCards: json["allUniqueCards"],
@@ -74,6 +77,7 @@ class DeckCollection {
 
   Map<String, dynamic> toJson() => {
         "userId": userId,
+        "deckName": deckName,
         "gameType": gameType,
         "cardTotal": cardTotal,
         "allUniqueCards": allUniqueCards,
